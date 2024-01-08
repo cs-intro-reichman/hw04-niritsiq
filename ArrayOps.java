@@ -8,17 +8,37 @@ public class ArrayOps {
 
     public static int findMissingInt(int[] array) {
         // Write your code here:
+        /*
+         * boolean check = false;
+         * int missing = 0, i = 0;
+         * if (array.length == 1)
+         * return 1;
+         * while (i < array.length) {
+         * for (int j = 0; j < array.length; j++) {
+         * if (i == array[j]) {
+         * 
+         * check = true;
+         * }
+         * }
+         * if (check) {
+         * missing = i;
+         * }
+         * i++;
+         * }
+         * 
+         * return missing;
+         */
         if (array.length == 1)
-            return 0;
-        int expected = 0, real = 0;
+            return 1;
+        int excpected = 0, real = 0;
         for (int i = 0; i < array.length; i++) {
-            expected += i;
+            excpected += i;
 
         }
         for (int j = 0; j < array.length; j++) {
             real += array[j];
         }
-        return (expected - real);
+        return excpected - real;
     }
 
     public static int secondMaxValue(int[] array) {
