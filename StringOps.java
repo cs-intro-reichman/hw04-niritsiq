@@ -22,8 +22,8 @@ public class StringOps {
     ////// ///////
     ////////////////////////////////////////////////////////////
     public static void main(String[] args) {
-        String str = args[0];
-        System.out.println(capVowlesLowRest(str));
+        // String str = args[0];
+        // System.out.println(capVowlesLowRest(str));
     }
 
     public static String replaceVowels(String str) {
