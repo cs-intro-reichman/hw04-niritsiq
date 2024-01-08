@@ -8,10 +8,11 @@ public class ArrayOps {
 
     public static int findMissingInt(int[] array) {
         // Write your code here:
-
+        if (array.length == 1)
+            return 0;
         int expected = 0, real = 0;
         for (int i = 0; i < array.length; i++) {
-            expected += array[i];
+            expected += i;
 
         }
         for (int j = 0; j < array.length; j++) {
