@@ -30,7 +30,7 @@ public class ArrayOps {
          */
         if (array.length == 1)
             return 1;
-        int excpected = 0, real = 0;
+        int excpected = array.length, real = 0;
         for (int i = 0; i < array.length; i++) {
             excpected += i;
 
