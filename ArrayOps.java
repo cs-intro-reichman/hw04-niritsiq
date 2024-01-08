@@ -1,31 +1,23 @@
 public class ArrayOps {
     public static void main(String[] args) {
         int[] array1 = { 3, -4, 1, 2, 5 };
-        int[] array2 = { 1, 3, 2 };
-        System.out.println(isSorted(array2));
+        int[] array2 = { 2, 3, 1 };
+        System.out.println(findMissingInt(array2));
 
     }
 
     public static int findMissingInt(int[] array) {
         // Write your code here:
-        boolean check = false;
-        int missing = 0, i = 0;
-        if (array.length == 1)
-            return 1;
-        while (i < array.length) {
-            for (int j = 0; j < array.length; j++) {
-                if (i == array[j]) {
 
-                    check = true;
-                }
-            }
-            if (check) {
-                missing = i;
-            }
-            i++;
+        int expected = 0, real = 0;
+        for (int i = 0; i < array.length; i++) {
+            expected += array[i];
+
         }
-
-        return missing;
+        for (int j = 0; j < array.length; j++) {
+            real += array[j];
+        }
+        return (expected - real);
     }
 
     public static int secondMaxValue(int[] array) {
