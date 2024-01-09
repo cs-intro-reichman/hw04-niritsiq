@@ -35,7 +35,7 @@ public class StringOps {
             char c = str.charAt(i);
             if ("aeiou".indexOf(c) != -1) {
                 newS += (char) (c - 32);
-            } else if ("AEIOU".indexOf(c) != -1) {
+            } else if ((int) c >= 65 && (int) c <= 90 && !("aeiou".indexOf(c) != -1)) {
                 newS += (char) (c + 32);
             } else if ((int) c >= 65 && (int) c <= 90)
                 newS += (char) (c + 32);
