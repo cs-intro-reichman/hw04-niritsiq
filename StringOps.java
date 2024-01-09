@@ -22,68 +22,31 @@ public class StringOps {
     ////// ///////
     ////////////////////////////////////////////////////////////
     public static void main(String[] args) {
-        // String str = args[0];
-        // System.out.println(capVowlesLowRest(str));
-    }
-
-    public static String replaceVowels(String str) {
-        String smallVowels = "aeiou";
-        String bigVowels = "AEIOU";
-        String newS = "";
-        for (int i = 0; i < str.length(); i++) {
-            for (int j = 0; j < str.length(); j++) {
-                if (str.charAt(i) == smallVowels.charAt(j))
-                    newS += bigVowels.charAt(j);
-            }
-        }
-        return newS;
-
-    }
-
-    public static String replaceOther(String str) {
-        String lower = "bcdfghjklmnpqrstvwxyz";
-        String big = "BCDFGHJKLMNPQRSTVWXYZ";
-        String newS = "";
-        for (int i = 0; i < str.length(); i++) {
-            for (int j = 0; j < str.length(); j++) {
-                if (str.charAt(i) == lower.charAt(j))
-                    newS += big.charAt(j);
-            }
-        }
-        return newS;
-
-    }
-
-    public static boolean checkKind(String str) {
-        for (int i = 0; i < str.length(); i++) {
-            if (str.charAt(i) == 'a' || str.charAt(i) == 'e' || str.charAt(i) == 'i' || str.charAt(i) == 'o'
-                    || str.charAt(i) == 'u') {
-                return true;
-            }
-
-        }
-        return false;
+        String str = args[0];
+        System.out.println(capVowelsLowRest(str));
     }
 
     public static String capVowelsLowRest(String str) {
         // Write your code here:
-        String smallVowels = "aeiou";
-        String bigVowels = "AEIOU";
-        String lower = "bcdfghjklmnpqrstvwxyz";
-        String big = "BCDFGHJKLMNPQRSTVWXYZ";
+
         String newS = "";
         for (int i = 0; i < str.length(); i++) {
-            if (str.charAt(i) == ' ')
-                newS += ' ';
-            else if (checkKind(str))
-                newS += replaceVowels(str);
+
+            char c = str.charAt(i);
+            if ("aeiou".indexOf(c) != -1) {
+                newS += (char) (c - 32);
+            } else if ("AEIOU".indexOf(c) != -1) {
+                newS += (char) (c + 32);
+            } else if ((int) c >= 65 && (int) c <= 90)
+                newS += (char) (c + 32);
             else
-                newS += replaceOther(str);
+                newS += c;
 
         }
         return newS;
     }
 
+    //
     public static String camelCase(String string) {
         // Write your code here:
         return "";
