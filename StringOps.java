@@ -24,12 +24,20 @@ public class StringOps {
     public static void main(String[] args) {
         String str = args[0];
 
-        System.out.println(capVowelsLowRest(str));
+        System.out.println(secondWord(str));
     }
 
     public static char changeToLower(char c) {
         if (c >= 'A' && c <= 'Z')
             return (char) (c + ('a' - 'A'));
+        else
+            return c;
+
+    }
+
+    public static char changeToUpper(char c) {
+        if (c >= 'a' && c <= 'z')
+            return (char) (c + ('A' - 'a'));
         else
             return c;
 
@@ -65,9 +73,53 @@ public class StringOps {
     }
 
     //
-    public static String camelCase(String string) {
+    public static String changeFirstToLowerCase(String str) {
+        char c;
+        c = str.charAt(0);
+
+        String newS = "";
+        for (int i = 0; i < str.length(); i++) {
+            if (i == 0)
+                newS += changeToLower(c);
+            else
+                newS += str.charAt(i);
+        }
+        return newS;
+    }
+
+    public static String secondWordUpperCase(String str) {
+        String newS = "";
+
+        for (int i = 1; i < str.length(); i++) {
+            if (str.charAt(i - 1) == ' ') {
+                newS += changeToUpper(str.charAt(i));
+            } else
+                newS += str.charAt(i);
+        }
+        return newS;
+    }
+
+    public static String removeSpace(String str) {
+        String newS = "";
+
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) == ' ') {
+                newS = newS;
+            } else
+                newS += str.charAt(i);
+        }
+        return newS;
+    }
+
+    public static String camelCase(String str) {
         // Write your code here:
-        return "";
+        String newS = "";
+
+        newS += changeFirstToLowerCase(str);
+        newS += secondWordUpperCase(str);
+        newS += removeSpace(str);
+
+        return newS;
     }
 
     public static int[] allIndexOf(String string, char chr) {
