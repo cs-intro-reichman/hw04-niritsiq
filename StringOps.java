@@ -113,9 +113,9 @@ public class StringOps {
         // Write your code here:
         String newS = "";
 
-        newS += changeFirstToLowerCase(str);
-        newS += secondWordUpperCase(str);
-        newS += removeSpace(str);
+        newS = changeFirstToLowerCase(str);
+        newS = secondWordUpperCase(str);
+        newS = removeSpace(str);
 
         return newS;
     }
