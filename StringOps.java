@@ -126,11 +126,11 @@ public class StringOps {
         newS += str.charAt(0);
         for (int i = 1; i < str.length(); i++) {
             if (str.charAt(i - 1) != ' ') {
-                char c = changeToUpper(str.charAt(i));
+                char c = changeToLower(str.charAt(i));
                 newS += c;
 
             } else {
-                char c1 = changeToLower(str.charAt(i));
+                char c1 = changeToUpper(str.charAt(i));
                 newS += c1;
             }
         }
@@ -143,10 +143,13 @@ public class StringOps {
 
         newS = changeFirstToLowerCase(str);// CORRECT
         str = newS;
+
         newS = secondWordUpperCase(str);// correct
         str = newS;
-        newS = changeLetterAfterSpace(str);// NEED TO CHECK
+
+        newS = changeLetterAfterSpace(str);// correct
         str = newS;
+
         newS = changeFirstToLowerCase(str);// CORRECT
         str = newS;
         newS = removeSpace(str);// NEED TO CHECK
