@@ -22,7 +22,9 @@ public class StringOps {
     ////// ///////
     ////////////////////////////////////////////////////////////
     public static void main(String[] args) {
-
+        String str = args[0];
+        char c = 't';
+        System.out.println(camelCase(str));
     }
 
     public static char changeToLower(char c) {
@@ -34,9 +36,11 @@ public class StringOps {
     }
 
     public static char changeToUpper(char c) {
-        if (c >= 'a' && c <= 'z')
-            return (char) (c + ('A' - 'a'));
-        else
+        if (c >= 'a' && c <= 'z') {
+
+            return (char) (c - ('a' - 'A'));
+
+        } else
             return c;
 
     }
@@ -72,22 +76,29 @@ public class StringOps {
 
     //
     public static String changeFirstToLowerCase(String str) {
+
         char c;
         c = str.charAt(0);
-
+        int i = 0;
         String newS = "";
-        for (int i = 0; i < str.length(); i++) {
-            if (i == 0)
-                newS += changeToLower(c);
-            else
-                newS += str.charAt(i);
+        while (str.charAt(i) == ' ') {
+
+            i++;
+        }
+        c = str.charAt(i);
+        newS += changeToLower(c);
+        for (int j = i + 1; j < str.length(); j++) {
+            newS += str.charAt(j);
         }
         return newS;
     }
 
+    // משנה את האות שאחרי הרווח לגדולה
     public static String secondWordUpperCase(String str) {
         String newS = "";
+        char c = str.charAt(0);
 
+        newS += changeToLower(c);
         for (int i = 1; i < str.length(); i++) {
             if (str.charAt(i - 1) == ' ') {
                 newS += changeToUpper(str.charAt(i));
@@ -96,6 +107,7 @@ public class StringOps {
         }
         return newS;
     }
+    // להוסיף קוד שמחליף את כל האותיות שאינן בראשית מילה לאותיות קטנות
 
     public static String removeSpace(String str) {
         String newS = "";
@@ -109,15 +121,38 @@ public class StringOps {
         return newS;
     }
 
+    public static String changeLetterAfterSpace(String str) {
+        String newS = "";
+        newS += str.charAt(0);
+        for (int i = 1; i < str.length(); i++) {
+            if (str.charAt(i - 1) != ' ') {
+                char c = changeToUpper(str.charAt(i));
+                newS += c;
+
+            } else {
+                char c1 = changeToLower(str.charAt(i));
+                newS += c1;
+            }
+        }
+        return newS;
+    }
+
     public static String camelCase(String str) {
         // Write your code here:
         String newS = "";
 
-        newS = changeFirstToLowerCase(str);
-        newS = secondWordUpperCase(str);
-        newS = removeSpace(str);
+        newS = changeFirstToLowerCase(str);// CORRECT
+        str = newS;
+        newS = secondWordUpperCase(str);// correct
+        str = newS;
+        newS = changeLetterAfterSpace(str);// NEED TO CHECK
+        str = newS;
+        newS = changeFirstToLowerCase(str);// CORRECT
+        str = newS;
+        newS = removeSpace(str);// NEED TO CHECK
+        str = newS;
 
-        return newS;
+        return str;
     }
 
     public static int[] allIndexOf(String string, char chr) {
