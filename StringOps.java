@@ -23,8 +23,8 @@ public class StringOps {
     ////////////////////////////////////////////////////////////
     public static void main(String[] args) {
         String str = args[0];
-        char c = 't';
-        System.out.println(camelCase(str));
+        char c = 'l';
+        System.out.println(allIndexOf(str, c));
     }
 
     public static char changeToLower(char c) {
@@ -158,8 +158,25 @@ public class StringOps {
         return str;
     }
 
-    public static int[] allIndexOf(String string, char chr) {
+    public static int[] allIndexOf(String str, char chr) {
         // Write your code here:
-        return new int[1];
+        int count = 0;
+
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) == chr)
+                count++;
+        }
+        int[] array = new int[count];
+        for (int i = 0; i < array.length; i++) {
+            array[i] = 0;
+        }
+        count = 0;
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) == chr) {
+                array[count] = i;
+                count++;
+            }
+        }
+        return array;
     }
 }
